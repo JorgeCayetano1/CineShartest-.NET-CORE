@@ -1,2 +1,2 @@
 # CineShartest-.NET-CORE
-Proyecto MVC .net core
+Proyecto MVC con .net core 5
