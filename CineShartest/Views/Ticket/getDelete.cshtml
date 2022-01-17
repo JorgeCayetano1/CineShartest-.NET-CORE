@@ -1,0 +1,50 @@
+﻿@model CineShartest.Models.Ticket
+@{
+    ViewData["Title"] = "Eliminar Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Eliminar Ticket</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getDeleteTicket">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Tipo"></label>
+                    <input asp-for="Tipo" class="form-control" placeholder="Tipo">
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescripTicket"></label>
+                    <input asp-for="DescripTicket" class="form-control" placeholder="Descripción">
+                    <span asp-validation-for="DescripTicket" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioTicket"></label>
+                    <input asp-for="PrecioTicket" class="form-control" placeholder="Precio del Ticket">
+                    <span asp-validation-for="PrecioTicket" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodEst"></label>
+                    <input asp-for="CodEst" class="form-control" placeholder="Clasificación">
+                    <span asp-validation-for="CodEst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />}
+}

@@ -1,0 +1,60 @@
+﻿@model CineShartest.Models.Cartelera
+@{
+    ViewData["Title"] = "Editar Cartelera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Editar Cartelera</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getEdit">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="IdPeli"></label>
+                    <input asp-for="IdPeli" class="form-control" placeholder="Pelicula">
+                    <span asp-validation-for="IdPeli" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdSala"></label>
+                    <input asp-for="IdSala" class="form-control" placeholder="Sala">
+                    <span asp-validation-for="IdSala" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HoraIni"></label>
+                    <input asp-for="HoraIni" class="form-control" placeholder="Empieza">
+                    <span asp-validation-for="HoraIni" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HoraFin"></label>
+                    <input asp-for="HoraFin" class="form-control" placeholder="Termina">
+                    <span asp-validation-for="HoraFin" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fecha"></label>
+                    <input asp-for="Fecha" class="form-control" placeholder="Fecha">
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodEst"></label>
+                    <input asp-for="CodEst" class="form-control" placeholder="Estado">
+                    <span asp-validation-for="CodEst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />
+}}

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CineShartest.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Empleados</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block" asp-action="getAdd" asp-controller="Empleado">Agregar Nuevo Empleado</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(m => m.IdEmp)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.NomEmp)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.ApeEmp)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.CargEmp)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.SuelEmp)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.CodEst)</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <th scope="row">@item.IdEmp</th>
+                        <td>@item.NomEmp</td>
+                        <td>@item.ApeEmp</td>
+                        <td>@item.CargEmp</td>
+                        <td>@Convert.ToDecimal(item.SuelEmp)</td>
+                        <td>@Convert.ToInt32(item.CodEst)</td>
+                        <td><a class="btn btn-warning" asp-controller="Empleado" asp-action="getEdit" asp-route-id="@item.Id">Editar</a></td>
+                        <td><a type="button" class="btn btn-danger" asp-controller="Empleado" asp-action="getDelete" asp-route-id="@item.Id">Eliminar</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>no existen registros</p>
+        }
+    </div>
+</div>

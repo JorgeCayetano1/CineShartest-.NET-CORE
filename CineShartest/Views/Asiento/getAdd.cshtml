@@ -1,0 +1,42 @@
+﻿@model CineShartest.Models.Asiento
+@{
+    ViewData["Title"] = "Nueva Asiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="Add">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Crear Asiento</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getAdd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NrAsie"></label>
+                    <input asp-for="NrAsie" class="form-control" placeholder="Número de Asiento">
+                    <span asp-validation-for="NrAsie" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdSala"></label>
+                    <input asp-for="IdSala" class="form-control" placeholder="Sala">
+                    <span asp-validation-for="IdSala" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodEst"></label>
+                    <input asp-for="CodEst" class="form-control" placeholder="Estado">
+                    <span asp-validation-for="CodEst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    @{ <partial name="_ValidationScriptsPartial" />}
+}

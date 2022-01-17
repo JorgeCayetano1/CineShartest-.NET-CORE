@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CineShartest.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de Clientes</h3>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success d-block" asp-action="getAdd" asp-controller="Cliente">Agregar Nuevo Cliente</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(m => m.ID_CLI)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.NOM_CLI)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.APE_CLI)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.DNI)</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.ID_CLI</th>
+                            <td>@item.NOM_CLI</td>
+                            <td>@item.APE_CLI</td>
+                            <td>@int.Parse(item.DNI)</td>
+                            <td><a class="btn btn-warning" asp-controller="Cliente" asp-action="getEdit" asp-route-id="@item.ID">Editar</a></td>
+                            <td><a type="button" class="btn btn-danger" asp-controller="Cliente" asp-action="getDelete" asp-route-id="@item.ID">Eliminar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>no existen registros</p>
+        }
+    </div>
+</div>

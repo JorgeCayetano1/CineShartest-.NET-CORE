@@ -1,0 +1,62 @@
+﻿@model CineShartest.Models.Pelicula
+@{
+    ViewData["Title"] = "Nueva Pelicula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="Add">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Crear Pelicula</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getAdd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Titulo"></label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Titulo">
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescripPeli"></label>
+                    <input asp-for="DescripPeli" class="form-control" placeholder="Descripción">
+                    <span asp-validation-for="DescripPeli" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DurPeli"></label>
+                    <input asp-for="DurPeli" class="form-control" placeholder="Duración">
+                    <span asp-validation-for="DurPeli" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodGene"></label>
+                    <input asp-for="CodGene" class="form-control" placeholder="Genero">
+                    <span asp-validation-for="CodGene" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClasifPeli"></label>
+                    <input asp-for="ClasifPeli" class="form-control" placeholder="Clasificación">
+                    <span asp-validation-for="ClasifPeli" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Portada"></label>
+                    <input asp-for="Portada" class="form-control" placeholder="Coloca el nombre de la imagen">
+                    <span asp-validation-for="Portada" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodEst"></label>
+                    <input asp-for="CodEst" class="form-control" placeholder="Estado">
+                    <span asp-validation-for="CodEst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    @{ <partial name="_ValidationScriptsPartial" />}
+}

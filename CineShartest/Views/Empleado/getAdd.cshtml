@@ -1,0 +1,52 @@
+﻿@model CineShartest.Models.Empleado
+@{
+    ViewData["Title"] = "Nuevo Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" id="Add">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Crear Empleado</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getAdd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomEmp"></label>
+                    <input asp-for="NomEmp" class="form-control" placeholder="Titulo">
+                    <span asp-validation-for="NomEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApeEmp"></label>
+                    <input asp-for="ApeEmp" class="form-control" placeholder="Descripción">
+                    <span asp-validation-for="ApeEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CargEmp"></label>
+                    <input asp-for="CargEmp" class="form-control" placeholder="Duración">
+                    <span asp-validation-for="CargEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SuelEmp"></label>
+                    <input asp-for="SuelEmp" class="form-control" placeholder="Genero">
+                    <span asp-validation-for="SuelEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CodEst"></label>
+                    <input asp-for="CodEst" class="form-control" placeholder="Clasificación">
+                    <span asp-validation-for="CodEst" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    @{ <partial name="_ValidationScriptsPartial" />}
+}

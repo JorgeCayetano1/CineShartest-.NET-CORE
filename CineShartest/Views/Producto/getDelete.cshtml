@@ -1,0 +1,45 @@
+﻿@model CineShartest.Models.Producto
+@{
+    ViewData["Title"] = "Eliminar Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Eliminar Producto</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getDeleteProducto">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomProd"></label>
+                    <input asp-for="NomProd" class="form-control" placeholder="Producto">
+                    <span asp-validation-for="NomProd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioProd"></label>
+                    <input asp-for="PrecioProd" class="form-control" placeholder="Precio">
+                    <span asp-validation-for="PrecioProd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CantProd"></label>
+                    <input asp-for="CantProd" class="form-control" placeholder="Cantidad Disponible">
+                    <span asp-validation-for="CantProd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />}
+}

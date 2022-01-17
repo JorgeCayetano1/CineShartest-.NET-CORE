@@ -1,0 +1,50 @@
+﻿@model CineShartest.Models.Dulcerium
+@{
+    ViewData["Title"] = "Editar Dulceria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Editar Dulceria</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="getEdit">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomDulc"></label>
+                    <input asp-for="NomDulc" class="form-control" placeholder="Dulceria">
+                    <span asp-validation-for="NomDulc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdEmp"></label>
+                    <input asp-for="IdEmp" class="form-control" placeholder="Empleado">
+                    <span asp-validation-for="IdEmp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdCine"></label>
+                    <input asp-for="IdCine" class="form-control" placeholder="Cine">
+                    <span asp-validation-for="IdCine" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdProd"></label>
+                    <input asp-for="IdProd" class="form-control" placeholder="Producto">
+                    <span asp-validation-for="IdProd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />
+}}
